@@ -1,13 +1,54 @@
-# Socket.io Chat App
+# Harmony Chat
 
-Minimal real-time chat application using Node.js, Express and Socket.io.
+A polished real-time chat application built with Node.js, Express and Socket.io.
 
-## Run
+Features:
+- Rooms and private messages
+- Typing indicators and presence
+- Message history with optional persistence
+- Modern responsive UI with avatars and animations
 
-1. Install dependencies: `npm install`
-2. Start: `npm start`
+Quick start:
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Start the server
+
+```bash
+npm start
+```
+
 3. Open http://localhost:3000
 
-## Test
+Development:
 
-Run `npm test` to execute basic tests.
+```bash
+npm run dev
+```
+
+Persistence:
+
+Set environment variables to enable persistence:
+
+```bash
+ENABLE_PERSIST=true
+PERSIST_FILE=./data.json
+```
+
+API endpoints:
+- GET /api/history?room=ROOM&limit=N
+- GET /api/users
+
+Testing
+
+```bash
+npm test
+```
+
+Contributing
+
+See CONTRIBUTING.md for guidelines.
