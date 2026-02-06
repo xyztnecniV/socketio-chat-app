@@ -66,5 +66,7 @@ if (require.main === module) {
   });
 }
 
-// Export for tests
-module.exports = createServer();
+// Export for tests and backwards compatibility
+const created = createServer();
+module.exports = created.server;
+module.exports.createServer = createServer;
