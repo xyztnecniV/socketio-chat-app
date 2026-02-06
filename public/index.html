@@ -1,20 +1,31 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Socket.io Chat</title>
     <style>
-      body { font-family: Arial, sans-serif; margin: 2rem; }
-      #messages { list-style-type: none; padding: 0; }
+      body { font-family: Arial, sans-serif; margin: 1rem; }
+      #messages { list-style-type: none; padding: 0; max-height: 60vh; overflow-y: auto; }
       #messages li { padding: 0.5rem 0; }
+      #status.ok { color: green; }
+      #status.bad { color: red; }
+      #status.warn { color: orange; }
+      form { display: flex; gap: 0.5rem; align-items: center; }
+      input[type="text"] { flex: 1; padding: 0.5rem; }
+      button { padding: 0.5rem 1rem; }
     </style>
   </head>
   <body>
     <h1>Socket.io Chat</h1>
-    <ul id="messages"></ul>
+    <p id="status" aria-live="polite">Connecting...</p>
+
+    <ul id="messages" aria-live="polite"></ul>
+
     <form id="form">
-      <input id="input" autocomplete="off" placeholder="Type a message" />
-      <button>Send</button>
+      <label for="input" class="visually-hidden">Message</label>
+      <input id="input" type="text" autocomplete="off" placeholder="Type a message" />
+      <button type="submit">Send</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
