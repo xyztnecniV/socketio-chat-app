@@ -1,21 +1,44 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Socket.io Chat</title>
-    <style>
-      body { font-family: Arial, sans-serif; margin: 2rem; }
-      #messages { list-style-type: none; padding: 0; }
-      #messages li { padding: 0.5rem 0; }
-    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Harmony Chat — Real-time conversations</title>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <h1>Socket.io Chat</h1>
-    <ul id="messages"></ul>
-    <form id="form">
-      <input id="input" autocomplete="off" placeholder="Type a message" />
-      <button>Send</button>
-    </form>
+    <div class="app">
+      <aside class="sidebar" aria-label="Sidebar">
+        <div class="brand">Harmony Chat</div>
+        <div class="rooms">
+          <h3>Rooms</h3>
+          <ul id="room-list"></ul>
+          <form id="room-form" class="inline">
+            <input id="room-input" placeholder="Create / Join room" />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+        <div class="users">
+          <h3>Users</h3>
+          <ul id="users"></ul>
+        </div>
+      </aside>
+
+      <main class="chat" role="main">
+        <header class="chat-header">
+          <div id="current-room">#global</div>
+          <div id="status" class="status">Connecting...</div>
+        </header>
+
+        <section id="messages" class="messages" aria-live="polite"></section>
+
+        <div class="composer">
+          <input id="message-input" placeholder="Write a message..." autocomplete="off" />
+          <button id="send">Send</button>
+        </div>
+      </main>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
   </body>
